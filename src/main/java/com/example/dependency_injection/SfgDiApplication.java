@@ -1,9 +1,6 @@
 package com.example.dependency_injection;
 
-import com.example.dependency_injection.controller.ConstructorInjectedGreetingController;
-import com.example.dependency_injection.controller.PropertyInjectedGreetingController;
-import com.example.dependency_injection.controller.SetterInjectedGreetingController;
-import com.example.dependency_injection.controller.TestController;
+import com.example.dependency_injection.controller.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -33,6 +30,11 @@ public class SfgDiApplication {
 		System.out.println("Setter");
 		SetterInjectedGreetingController setterInjectedGreetingController = applicationContext.getBean(SetterInjectedGreetingController.class);
 		System.out.println(setterInjectedGreetingController.getGreeting());
+
+
+		System.out.println("profile");
+		I18NController i18NController = applicationContext.getBean(I18NController.class);
+		System.out.println(i18NController.getText());
 
 
 	}
