@@ -16,6 +16,7 @@ public class SfgDiApplication {
 
 		ApplicationContext applicationContext =  SpringApplication.run(SfgDiApplication.class, args);
 
+		System.out.println("primary");
 		TestController testController = applicationContext.getBean(TestController.class);
 		System.out.println(testController.getText());
 
@@ -26,12 +27,12 @@ public class SfgDiApplication {
 
 		System.out.println("property");
 		PropertyInjectedGreetingController propertyInjectedGreetingController = applicationContext.getBean(PropertyInjectedGreetingController.class);
-		System.out.println(constructorInjectedGreetingController.getGreeting());
+		System.out.println(propertyInjectedGreetingController.getGreeting());
 
 
 		System.out.println("Setter");
 		SetterInjectedGreetingController setterInjectedGreetingController = applicationContext.getBean(SetterInjectedGreetingController.class);
-		System.out.println(constructorInjectedGreetingController.getGreeting());
+		System.out.println(setterInjectedGreetingController.getGreeting());
 
 
 	}
