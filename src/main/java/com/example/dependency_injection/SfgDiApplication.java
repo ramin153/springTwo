@@ -1,10 +1,14 @@
 package com.example.dependency_injection;
 
 import com.example.dependency_injection.controller.*;
+import com.example.other.controller.OtherController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
+
+@ComponentScan(basePackages = {"com.example.dependency_injection","com.example.other"})
 @SpringBootApplication
 public class SfgDiApplication {
 
@@ -35,6 +39,10 @@ public class SfgDiApplication {
 		System.out.println("profile");
 		I18NController i18NController = applicationContext.getBean(I18NController.class);
 		System.out.println(i18NController.getText());
+
+		System.out.println("scan other package");
+		OtherController otherController = applicationContext.getBean(OtherController.class);
+		System.out.println(otherController.talk());
 
 
 	}
