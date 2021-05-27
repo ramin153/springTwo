@@ -5,15 +5,14 @@ import com.example.dependency_injection.repositores.EnglishRepositoryGreetingImp
 import com.example.dependency_injection.service.*;
 import com.example.pet.PetService;
 import com.example.pet.PetServiceFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 
+
+@ImportResource("classpath:sfgdl-config.xml")
 @Configuration
 public class GreetingConfig {
 
-    @Bean
+
      ConstructorGreetingServiceI constructorGreetingServiceI()
     {
         return new ConstructorGreetingServiceI();
