@@ -3,6 +3,8 @@ package com.example.dependency_injection.config;
 import com.example.dependency_injection.repositores.EnglishRepositoryGreeting;
 import com.example.dependency_injection.repositores.EnglishRepositoryGreetingImpl;
 import com.example.dependency_injection.service.*;
+import com.example.pet.PetService;
+import com.example.pet.PetServiceFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -57,6 +59,30 @@ public class GreetingConfig {
     {
         return new I18NEnglishService(englishRepositoryGreeting);
     }
+
+
+    @Bean
+    PetServiceFactory petServiceFactory()
+    {
+        return new PetServiceFactory();
+    }
+
+    @Profile({"cat","default"})
+    @Bean("petService")
+    PetService catPetService(PetServiceFactory petServiceFactory)
+    {
+        return petServiceFactory.getPetService("cat");
+    }
+
+    @Profile({"dog"})
+    @Bean("petService")
+    PetService dogPetService(PetServiceFactory petServiceFactory)
+    {
+        return petServiceFactory.getPetService("dog");
+    }
+
+
+
 
 
 }

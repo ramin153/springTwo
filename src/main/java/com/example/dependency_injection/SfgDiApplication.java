@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 
-@ComponentScan(basePackages = {"com.example.dependency_injection","com.example.other"})
+@ComponentScan(basePackages = {"com.example.dependency_injection","com.example.pet","com.example.other"})
 @SpringBootApplication
 public class SfgDiApplication {
 
@@ -43,6 +43,11 @@ public class SfgDiApplication {
 		System.out.println("scan other package");
 		OtherController otherController = applicationContext.getBean(OtherController.class);
 		System.out.println(otherController.talk());
+
+
+		System.out.println("pet");
+		PetServiceController petServiceController = applicationContext.getBean(PetServiceController.class);
+		System.out.println(petServiceController.getString());
 
 
 	}
