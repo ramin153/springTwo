@@ -1,11 +1,25 @@
 spring:
   profiles:
-    acttive: EN,dog
+    active:
+      - dog
+      - EN
+      - mutlti
 com:
   example:
     dependency_injection:
       userName: yml ramin
       password: yml password
       JDBCurl: www.google.com yml
+
+
+---
+spring:
+  profiles: mutlti
+com:
+  example:
+    dependency_injection:
+      userName: yml mutlti ramin
+      password: yml mutlti password
+      JDBCurl: www.google.com yml mutlti
 
 

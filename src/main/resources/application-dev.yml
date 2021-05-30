@@ -1,0 +1,6 @@
+com:
+  example:
+    dependency_injection:
+      userName: yml dev ramin
+      password: yml dev password
+      JDBCurl: www.google.com yml dev
