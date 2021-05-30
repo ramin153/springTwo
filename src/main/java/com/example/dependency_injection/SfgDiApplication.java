@@ -1,5 +1,6 @@
 package com.example.dependency_injection;
 
+import com.example.dependency_injection.config.SfgConfiguration;
 import com.example.dependency_injection.controller.*;
 import com.example.dependency_injection.datasource.FakeData;
 import com.example.other.controller.OtherController;
@@ -56,6 +57,12 @@ public class SfgDiApplication {
 		System.out.println(fakeData.getJDBCurl());
 		System.out.println(fakeData.getPassword());
 		System.out.println(fakeData.getUserName());
+
+		System.out.println("configuration properties source");
+		SfgConfiguration sfgConfiguration = applicationContext.getBean(SfgConfiguration.class);
+		System.out.println(sfgConfiguration.getJDBCurl());
+		System.out.println(sfgConfiguration.getPassword());
+		System.out.println(sfgConfiguration.getUserName());
 
 	}
 
