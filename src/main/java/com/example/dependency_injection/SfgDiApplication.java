@@ -1,6 +1,7 @@
 package com.example.dependency_injection;
 
 import com.example.dependency_injection.controller.*;
+import com.example.dependency_injection.datasource.FakeData;
 import com.example.other.controller.OtherController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -49,6 +50,12 @@ public class SfgDiApplication {
 		PetServiceController petServiceController = applicationContext.getBean(PetServiceController.class);
 		System.out.println(petServiceController.getString());
 
+
+		System.out.println("properties source");
+		FakeData fakeData = applicationContext.getBean(FakeData.class);
+		System.out.println(fakeData.getJDBCurl());
+		System.out.println(fakeData.getPassword());
+		System.out.println(fakeData.getUserName());
 
 	}
 

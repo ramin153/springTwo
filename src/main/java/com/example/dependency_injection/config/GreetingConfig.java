@@ -1,13 +1,15 @@
 package com.example.dependency_injection.config;
 
+import com.example.dependency_injection.datasource.FakeData;
 import com.example.dependency_injection.repositores.EnglishRepositoryGreeting;
 import com.example.dependency_injection.repositores.EnglishRepositoryGreetingImpl;
 import com.example.dependency_injection.service.*;
 import com.example.pet.PetService;
 import com.example.pet.PetServiceFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
-
+@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:sfgdl-config.xml")
 @Configuration
 public class GreetingConfig {
@@ -80,7 +82,17 @@ public class GreetingConfig {
         return petServiceFactory.getPetService("dog");
     }
 
-
+    @Bean
+    FakeData fakeData(@Value("${com.example.dependency_injection.userName}") String username,
+                      @Value("${com.example.dependency_injection.password}") String password,
+                      @Value("${com.example.dependency_injection.JDBCurl}") String jdbcurl)
+    {
+        FakeData fakeData = new FakeData();
+        fakeData.setPassword(password);
+        fakeData.setUserName(username);
+        fakeData.setJDBCurl(jdbcurl);
+        return fakeData;
+    }
 
 
 
