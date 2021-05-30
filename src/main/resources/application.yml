@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    acttive: EN,dog
+com:
+  example:
+    dependency_injection:
+      userName: yml ramin
+      password: yml password
+      JDBCurl: www.google.com yml
+
+
